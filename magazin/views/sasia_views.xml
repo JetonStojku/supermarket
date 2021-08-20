@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="magazin_sasia_form_view" model="ir.ui.view">
+            <field name="name">magazin.sasia.form</field>
+            <field name="model">magazin.sasia</field>
+            <field name="arch" type="xml">
+                <form string="ModelTitle">
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="produkt_id"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="magazine_id"/>
+                            </group>
+                            <group>
+                                <field name="sasia"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="magazin_sasia_tree_view" model="ir.ui.view">
+            <field name="name">magazin.sasia.tree</field>
+            <field name="model">magazin.sasia</field>
+            <field name="arch" type="xml">
+                <tree string="ModelTitle">
+                    <field name="produkt_id"/>
+                    <field name="magazine_id"/>
+                    <field name="sasia"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="magazin_sasia_act_window" model="ir.actions.act_window">
+            <field name="name">ModelTitle</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">magazin.sasia</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Kliko ketu te krijosh gjendje produkti ne magazine.
+                </p>
+            </field>
+        </record>
+
+        <menuitem name="Sasia ne magazina" id="magazin_sasia_menu" parent="shop_menu" action="magazin_sasia_act_window"/>
+
+    </data>
+</odoo>

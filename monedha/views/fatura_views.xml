@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="fatura_form_inherit" model="ir.ui.view">
+            <field name="name">monedha.fatura.form</field>
+            <field name="model">fatura</field>
+            <field name="inherit_id" ref="fatura_form_view"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <xpath expr="//sheet/group/field[@name='menyra_pageses']" position="after">
+                    <field name="monedha" attrs="{'invisible': [('menyra_pageses', '!=', 'cash')]}"/>
+                    <field name="kursi" attrs="{'invisible': [('menyra_pageses', '!=', 'cash')]}"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="fatura_tree_inherit" model="ir.ui.view">
+            <field name="name">monedha.fatura.tree</field>
+            <field name="model">fatura</field>
+            <field name="inherit_id" ref="fatura_tree_view"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='menyra_pageses']" position="after">
+                    <field name="monedha"/>
+                    <field name="kursi"/>
+                    <field name="totali_lek"/>
+                    <field name="per_te_paguar_lek"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
